@@ -127,7 +127,7 @@ The model is based on a convolutional neural network (CNN) with the following ar
 
 Below is the training and validation accuracy graph:
 
-![Training Graph](assets/image.png)
+![Training Graph](./assets/image.png)
 
 ---
 
