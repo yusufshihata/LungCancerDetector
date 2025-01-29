@@ -92,7 +92,7 @@ python main.py predict --model models/best_model.pth --image_path data/sample_im
 
 The dataset consists of lung CT scan images labeled as either **cancerous** or **non-cancerous**. If the dataset is publicly available, provide the source:
 
-- **Dataset Source:** [Kaggle](https://www.kaggle.com/)
+- **Dataset Source:** [Kaggle](https://www.kaggle.com/datasets/andrewmvd/lung-and-colon-cancer-histopathological-images)
 - **Preprocessing Steps:**
   - Resized all images to **224x224**.
   - Applied **normalization and augmentation**.
@@ -150,20 +150,5 @@ The classifier part of the model consists of fully connected layers:
 Below is the training and validation accuracy graph:
 
 ![Training Graph](output/image.png)
-
----
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## Acknowledgments
-
-Special thanks to:
-- **PyTorch** for deep learning frameworks.
-- **Kaggle** for providing datasets.
-- The open-source community for contributions to AI research.
 
 ---
