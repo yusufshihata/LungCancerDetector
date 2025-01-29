@@ -3,12 +3,12 @@ import torch.nn as nn
 import torch.optim as optim
 from src.model import Net
 
-IMAGES_PATH = "/data"
+IMAGES_PATH = "./data"
 BATCH_SIZE = 32
 BETAS = (0.9, 0.999)
 LR = 3e-4
 EPOCHS = 30
-DEVICE = "cuda"
+DEVICE = "cpu"
 
 model = Net().to(DEVICE)
 

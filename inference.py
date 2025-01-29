@@ -3,12 +3,11 @@ import torch.nn.functional as F
 from torchvision import transforms
 from PIL import Image
 import config
+from src.model import Net
 
 CLASS_NAMES = ["lung_aca", "lung_n", "lung_scc"]
 
 def predict(model, image_path):
-    model.eval()
-    
     transform = transforms.Compose([
         transforms.Resize((224, 224)),
         transforms.ToTensor(),
@@ -25,8 +24,3 @@ def predict(model, image_path):
         confidence = probabilities[0, predicted_idx].item() * 100
     
     return CLASS_NAMES[predicted_idx], confidence
-
-if __name__ == "__main__":
-    image_path = "data/sample.jpg"
-    prediction, confidence = predict(image_path)
-    print(f"Prediction: {prediction}, Confidence: {confidence:.2f}%")
