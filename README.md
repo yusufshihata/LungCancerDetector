@@ -104,12 +104,36 @@ The dataset consists of lung CT scan images labeled as either **cancerous** or *
 
 The model is based on a convolutional neural network (CNN) with the following architecture:
 
-- **Feature Extractor:** Pre-trained ResNet/VGG model.
-- **Fully Connected Layers:**
-  - Dense layers with ReLU activation.
-  - Dropout for regularization.
-- **Output Layer:**
-  - Softmax activation for classification.
+### Feature Extraction
+The feature extraction part of the model is implemented as a sequence of convolutional layers, each followed by ReLU activation, max-pooling, and batch normalization.
+
+1. **Conv2d (3 input channels, 32 output channels, kernel size 3, padding 1)**
+   - ReLU activation
+   - Max pooling with kernel size 2
+   - Batch normalization for 32 output channels
+
+2. **Conv2d (32 input channels, 64 output channels, kernel size 3, padding 1)**
+   - ReLU activation
+   - Max pooling with kernel size 2
+   - Batch normalization for 64 output channels
+
+3. **Conv2d (64 input channels, 128 output channels, kernel size 3, padding 1)**
+   - ReLU activation
+   - Max pooling with kernel size 2
+   - Batch normalization for 128 output channels
+
+4. **Adaptive Average Pooling (output size (6, 6))**
+   - This operation reduces the spatial dimensions of the feature map to a fixed size of 6x6, regardless of the input size.
+
+### Classifier
+The classifier part of the model consists of fully connected layers:
+
+1. **Linear (128 * 6 * 6 inputs, 512 outputs)**
+   - ReLU activation
+   - Dropout with probability 0.5 for regularization
+
+2. **Linear (512 inputs, 3 outputs)**
+   - This final linear layer produces the output with 3 classes.
 
 ---
 
@@ -118,8 +142,6 @@ The model is based on a convolutional neural network (CNN) with the following ar
 | Metric    | Value  |
 |-----------|--------|
 | Accuracy  | 98%    |
-| Precision | 97%    |
-| Recall    | 96%    |
 
 ---
 
