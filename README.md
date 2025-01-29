@@ -83,7 +83,7 @@ python main.py validate --model models/best_model.pth
 ### **Making Predictions**
 To predict lung cancer from an image:
 ```bash
-python main.py predict --model models/best_model.pth --image_path data/sample_image.jpg
+python main.py predict --model models/best_model.pth --image data/sample_image.jpg
 ```
 
 ---
